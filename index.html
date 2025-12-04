@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Password Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <h1>Password Analyzer</h1>
+                <p>Check strength, estimate crack time & detect personal info.</p>
+            </header>
+
+            <!-- Personal Information Section -->
+            <section class="personal-info">
+                <h3><span class="icon">👤</span> Personal Info (Optional)</h3>
+                <p class="subtitle">Enter details to check if your password contains personal data.</p>
+                <div class="input-grid">
+                    <input type="text" id="name" placeholder="Name (e.g. John)">
+                    <input type="number" id="birthYear" placeholder="Birth Year (e.g. 1990)">
+                    <input type="text" id="mobile" placeholder="Mobile Digits (e.g. 9876)">
+                    <input type="text" id="favWord" placeholder="Favorite Word">
+                </div>
+            </section>
+
+            <!-- Password Input Section -->
+            <section class="password-section">
+                <div class="input-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Type or generate a password...">
+                    <button id="toggleVisibility" title="Show/Hide Password">
+                        <span class="eye-icon">👁️</span>
+                    </button>
+                </div>
+                <div class="actions">
+                    <button id="generateBtn" class="btn secondary">⚡ Generate Secure Password</button>
+                    <button id="copyBtn" class="btn secondary">📋 Copy</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results" style="display: none;">
+                <div class="strength-meter">
+                    <div class="strength-header">
+                        <span>Strength:</span>
+                        <span id="strengthText" class="strength-text">Weak</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="crack-time">
+                    <span class="icon">⏳</span>
+                    <span>Estimated time to crack: <strong id="crackTime">...</strong></span>
+                </div>
+
+                <div id="personalInfoWarning" class="warning-box" style="display: none;">
+                    ⚠️ Avoid using personal information in passwords — easy to guess by hackers.
+                </div>
+
+                <div class="suggestions">
+                    <h4>Suggestions:</h4>
+                    <ul id="suggestionsList"></ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
